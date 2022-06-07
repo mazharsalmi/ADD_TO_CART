@@ -4,7 +4,8 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import { NavLink, Table } from 'react-bootstrap';
+import {  Table } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -68,7 +69,9 @@ export default function Header() {
                           <>
                             <tr>
                               <td>
-                                <img src={e.imgdata} style={{ width: '5rem', height: '5rem' }} alt="" />
+                                <NavLink to={`/cart/${e.id}`}   onClick={handleClose}>
+                                  <img src={e.imgdata} style={{ width: '5rem', height: '5rem' }} alt="" />
+                                </NavLink> 
                               </td>
                               <td>
                                 <p>{e.rname}</p>
@@ -85,7 +88,9 @@ export default function Header() {
                             </tr></>
                         )
                       })
-                    }</tbody>
+                    }
+                    <p  > Total: $ 300 </p>
+                  </tbody>
                 </Table>
               </div> :
               <div className=''>
